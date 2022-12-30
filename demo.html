@@ -1,55 +1,2029 @@
-<div>
-    <audio id="likehong_e_ding">
-        <source src="https://img1.ccgxk.com/ccgxk/7NIQcN20221127132127.m4a" type="audio/ogg">
-    </audio>
-    <div id="lkh_e_learn_a"></div>
-</div>
+<audio id="likehong_e_ding">
+    <source src="https://img1.ccgxk.com/ccgxk/7NIQcN20221127132127.m4a" type="audio/ogg">
+</audio>
+<div id="lkh_e_learn_a"></div>
+
 
 <script>
-let a = `
-pretend
-desire
-loose
-murder
-straight
-association
-shall
-grain
-bunch
-motto
-determine
-restriction
-upper
-thrill
-barrier
-pale`;
 
-let b = `
-它怕疼，但它要坚强，所以「假装」不疼。
-得赛跑，才能赢得人们的欢呼，这是它「渴望」的事情。
-相当罕见的词，大概跟化学有关。跟 release 很近，只不过 loose 更偏向松散。
-很常见！！我「谋杀」了我的仇人。
-见过 很多次。这条路很直！
-貌似前几天见过，毕竟谁天天看协会什么。中国作家协会。
-很优雅。语言比较委婉，书面。口头上用 will。
-见过两次，不是很熟。foodstuff 是吃的东西，grain 是肉眼可见的粮食。袁隆平院士研究的是粮食。
-好像在形容 一束花 时见过。她送我一束花。
-乌鸡英语里见过。莫脱。
-determine 的语气更严谨，在自然科学中用！优雅。基因决定你的智商。
-隐约见过。美国有限制中国经济的条约。
-从没见过。upper 是形容词。上面的腿放松下来。
-没印象。不过很优雅。thrill 还有毛骨悚然的意思。
-后者没见过，前者倒有印象。可形容语言障碍？我对英语有点语言障碍。
-这两个都没见过。谁能见过颜色啊？和 grey 差不多，更优雅，可形容灰白天空。`;
-</script>
+// -----------------[ 参数配置区 ]-----------------------
 
-<script>
-// 参数在这里配置
-const lkh_outNum = 10;  // 输出的次数
+const lkh_outNum = 10;  // 输出的条目数
+const lkh_searchApi = "";  // 搜索 API，这里如果有地址，可以点单词搜百度，目前是句子模式，固不用了。
+
+// -----------------[ 版本记录区 ]-----------------------
 
 // version 2.0:2022-12-01
 // version 1.0:2022-11-26
+
 // -----------------[ 以下内容均是是逻辑区，不用动 ]-----------------------
+
+a = `
+acquire good habits
+love adventure
+shortly afterwards
+stand against
+Agenda view
+sets off the alarm
+Amend licence
+wedding anniversary
+annoy somebody
+annual account
+anticipate the situation
+appendix table
+safety appliance
+Arbitration agreement
+arouse curiosity
+to assign a day
+channel assignment
+assistant manager
+assume command
+assure safety
+attach the label
+heart attack
+attempted to leave
+First Strike
+attain liberation
+target audience
+awesome power
+barber razor
+human barbecue
+bare legs
+coal basin
+how to use the bathtub
+tsingtao beach
+laser beam
+Coffee Bean
+Spicy beancurd
+kodo beast
+cotton bedding
+beehive cooler
+on behalf of
+for the time being
+belly dance
+seal belt
+bent glass
+betray sb/oneself
+Lucky Bingo
+Birdcage Walk
+be a bishop
+bomb squad
+Wooden Bookcase
+corner booth
+border-color
+botanical park
+agricultural botany
+school boycott
+break down
+breast feeding
+tsingtao brewery
+Brilliant Eyes
+tour brochure
+labor discipline
+self disclose
+physical disgust
+domestic flight
+donkey meat
+draft out
+land drill
+Cotton Mill
+plus or minus
+miracle of life
+miserable weather
+Front Mission
+gas mixture
+moderate loan
+modify this letter
+relative moisture
+pay off a mortgage
+slow motion
+To mount a horse
+two horsepower
+Hostile Act
+household goods
+Humble Me
+heart hurry
+acted out their ideal
+identical hobby
+idle time
+imitate rigidly
+Immediate boss
+imply happiness
+impose a difficult task on
+shooting incline
+commission agent 
+Olympic Committee
+commodity code
+communicat in english
+commute between
+compact space
+your companion
+backward compatibility 
+compensate money
+competition law
+Complex Question
+complicate parts
+Composed Method
+our compound 
+Each class comprises 60 students
+reach a compromise
+Concerning 
+concert dance 
+student conduct
+conductor spacing
+confess everything
+confine within
+as a consequence
+consequently he lost his jo
+conservative treatment
+conserve energy
+bodies consist of atoms
+factory's constant aim
+physically constrained
+interview with the Consul
+American Consulate
+consult doctor
+business consultant service
+consumed all the hamburgers.
+consumption abroad
+contact lenses
+contains forty maps
+girl drowned in the river
+drum tower
+Any money that is due to you
+Acted Dumb
+Duplicate Layer
+Remaining Duration
+Dusk freeway
+Earnest promise
+ease ahead
+university accommodation
+Agenda Daily
+agriculture report
+monthly allowance
+wrapped a handkerchief
+scale model
+Local scan
+factor scarce
+Scatter plots
+scenic town
+Ponzi scheme
+the most distinguished scholar
+screw speed
+Strip seal
+Senior Secretary
+ tried to interpret the meaning
+interval scale
+Romans invade Britain
+ invest in the dog market.
+driving investment in the area.
+invisible souls.
+manufacturer invoiced
+iron Maiden
+irrevocable judgment
+His itinerary
+apple jam
+diver emerged from the water
+expressed mixed emotions
+Skill Emphasis
+ I can't endure loud music.
+enhance our team spirit
+enormous pressure
+Enterprise Culture
+entertain consumers
+simultaneous production
+accept our sincere apologies.
+He showed singular wisdom
+Can you skate
+sketch with pen and paper.
+slave society
+long sleeve
+slight sea
+slope of land
+Superior room
+energy supplement
+survey report
+major suspect
+sneaking suspicion
+Sweat poured down his face
+sweater coat
+bound your desires
+rice bowl
+bowling shoe
+tour brochure
+Message Broker
+broom handle
+writing brush
+personal budget
+social evolution
+the exact words
+examine tickets
+exceeding the speed limit.
+the current excess.
+excessive growth
+exclude anybody.
+excuse oneself
+Execute Command
+chief executive
+exert pressure 
+exhaust gases
+She exhibited great powers
+expect salary
+capital expenditure
+The work is proceeding according to plan.
+Background Process
+procession way
+Proficient Skill
+Profitable Risks
+Prohibit service
+Promise Keeper
+promote this tradition.
+prompt attention
+water proof 
+proper thing
+physical property
+A proportion of the land
+research proposal
+career prospect
+a scene of prosperity
+prosperous west and the impoverished east
+to protest against the decision
+the president's authority
+I authorize you to hit them
+You go through Sixth Avenue .
+aware of having done wrong.
+bachelor degree
+Banquet Bar
+bar chair
+bare wood
+Relieve pain
+Reluctant see
+I rely on you to tell me
+Please remark
+remarkable work
+Let me remedy it.
+Cells divide and renew
+How much rent do you pay
+represent Napoleon
+labour representative
+Academic Reputation
+rescue car 
+what they resemble？
+cash reserve
+reset your watch
+his residence
+bell tower
+a hole in his belt
+seal belt
+berth light
+want to bet?
+I am reading bible
+bid documents
+Spider Bite
+Bitter Lemon
+Echo Park
+Developer Edition
+elaborate account
+in the last election
+we'd better take the elevator.
+eliminate noise
+I am using this adjective not without reason.
+amend theory
+Great Ancestor
+annual pension
+Anticipate result
+I will not yield a step.
+industrial zone
+semester report 
+Jesus Seminar
+Student Senate
+time sequence
+servant girl / civil servant
+to settle the strike
+Tom eyed them jealously.
+Blue Jeans
+from Tsingtao by jet
+joint pain
+drink up your juice
+ I am a junior.
+we can to justice and equality.
+justify easily
+they are keen on helping us.
+entry to the college
+victim era
+This is not essential.
+We wish to establish relation with you.
+estate business
+It is hard to estimate
+evaluate your boss?
+it is not evident.
+I have an evil soul 
+very smooth surfaces
+smuggle weapons
+Wash your with soap
+The sock was removed
+coffee, tea, soda
+my sole focus is doing what the doctors tell me.
+soild wire
+more sophisticated process
+The deeper that sorrow carves into your being
+leading symphony
+a symptom of a serious problem.
+synthetic rubber
+systematic review
+tackle the problem
+Calling a tail a leg
+a tale Told by an idiot,
+reducing the pressure in the tank.
+All interviews were tape recorded
+Talent hits a target no one else can hit
+bulletin board
+our bureau
+cut the butter
+the biggest cable audience
+shifting his camp
+campus life
+plunged into a canal
+provides an explanation.
+your head will explode.
+exploit the situation
+we explore some of the reasons
+radiation exposure
+extend our appreciation
+the extent of their participation
+external bleeding
+extra floors
+extraordinary fans
+led to extreme stress
+different facility
+a significant risk factor
+faculty members
+this state of feeling must fade
+the faint of heart
+every provision of this bill
+keep you punctual
+The Lord will punish men
+every pupil in every school
+purchase order
+pure water
+The purpose of these bases
+there is no purse or prize money
+pursue dream
+puzzle game
+qualified person
+quarantine area
+the fourth quarter of this year.
+British Queen
+barrier free
+basis point
+the bath water
+If you need to bathe
+drinking battery acid
+the nature of the beast
+behalf of the European
+permanent resident
+Resist the devil
+conflict resolution
+resort fee
+their respective owners.
+responsible area
+restrain oneself
+resume work
+retain the above copyright notice
+when they retire
+The retreat of summer sea ice
+forcing her gown to reveal a leg
+for some things, the reverse will be true
+revised edition
+reward system
+getting rid of many
+ride a bike
+They blame him for an economic
+leaving the last question blank
+blend the soup until it is smooth
+In the land of the blind
+the rats were killed by a blow to the head
+boarding school
+boat trip
+boiling point
+this is a bomb
+The hydrogen bond
+the bone marrow
+As an added bonus
+glorious future
+glory road
+the glow from that fire
+Chinese goods
+a graceful form of exercise
+with a grain of salt
+the crime of grand theft
+grant that request
+the figures in the graph
+We remove graphic images
+in a shallow grave
+were purchased from a local grocer
+gross domestic product
+no guarantee of future returns
+but guess what
+not guilty to
+Thus do
+turn the tide of 
+they are not tight
+what it says on the tin
+the tip of the iceberg
+nose with a tissue
+due to a toe injury
+The tone of the brief reads
+with a torch in your hand
+make some tough decisionstowel
+we need to trace the source of the fault
+we are on the right track
+Windows is a registered trademark 
+a single transaction
+bank transfer
+use public transit
+transparent glass
+gets the cheese in the trap
+rival political groups
+he was going to rob the bank
+role-play
+roll up our sleeves
+We dance round in a ring
+The most common route
+your daily routine
+row by row
+royal official 
+rubber bullets 
+throw them in the rubbish bin
+rude screamers
+a road to ruin
+there are a few exceptions to this rule
+more people live in cities than in rural areas
+the bad people would rush into our country
+who sail in this ship?
+For the sake of future
+This is not just a salutation
+he small sample size
+under the radar for many years
+They rank among the top 10 leading causes of death
+between the mouse and rat
+highest rate in the world
+The higher this ratio is, the better it will be.
+The data is not readily available to the public.
+I think you have to be realistic
+recall the message
+receipt date
+recent years
+reception room
+as a receptionist
+Please refer to the user manual
+to refine and test the model
+reflect the views 
+reflection paper
+reform the education system
+refreshment room
+The fee is non-refundable
+refuse the use of cookies
+I regard the brain as a computer
+regardless of your faith
+region of interest
+on a regular basis.
+reinforce the message 
+reject ratio
+pale yellow to golden yellow
+It can be held in the palm of the hand 
+This pamphlet will be produced
+parallel to the floor
+single parameter
+parcel post
+I beg your pardon
+parliament house
+a passion for life
+pat dry with a soft towel
+requires a lot of patience
+He is patient with you
+peculiar smell
+do you not perceive it
+period of validity
+permanent resident
+permissible range
+You will permit me to repeat
+The dog will will persist
+Likewise, it is not clear to me.
+She bit her lip
+load up
+loaf of bread
+loan shark
+in the Lord 
+they remained loyal to him
+I carried her luggage
+sir and madam
+magnificent scenery
+maintain their structures
+they are blamed on poor maintenance
+unprecedented level
+upset the balance
+I urge every new student
+reducing your energy usage
+utility company
+a apps that you can utilize
+vain glory
+It is only valid for one year
+If insects were to vanish
+Customs policies vary widely
+in your vehicle
+venture into
+verify code
+versus mode
+veteran status
+veto power
+via email or our discussion
+vice manager
+sewing machine
+shake things up a bit
+shareholder value
+to shave it off
+The first shipment isshortage
+in sense and sight
+sends a signal
+playing down its significance
+Better to remain silent
+sliver cup
+make your opponent believe that you are old
+optimal design
+oral defense
+ordinary people
+I breathed the smell of the Orient
+It ought to be
+no outlet to the sea
+I also had an overcoat 
+information overload
+overseas student
+we all owe him a huge debt
+take ownership of it
+a beautiful pacific place
+framework document
+To be frank
+Radio frequency
+frighten people
+The rest can frustrate you
+fuel cell
+to fulfill all of these requirements
+Big Lottery Fund
+the fundamental emotion
+once the funeral is over
+If you are allergic to fur
+I had to buy new furniture
+Furthermore, there are a dog
+to gain a better understanding
+This is a gap that needs to be addressed
+the entire garage
+gather the data
+a group of gay
+have a genuine interest
+geography education
+giant leap
+inclusive education
+this is indeed the case
+indicated below
+natural disasters and individual emergencies
+induce her to change her mind
+industrial revolution
+inevitable trend
+infect red blood cells
+an infinite number of ways
+influence the results
+inform your doctor about recent illnesses
+initial stages
+national initiative
+injection mold
+took him to an inn
+inner city
+innocent and pure
+inquiry office
+have some insight into the situation
+the next installment of the story
+in this instance
+instant access to information
+he wags his tail instead of his tongue
+go with your gut instinct
+gut feeling
+institute of economics
+Instruct the patient to rinse his mouth 
+This is not an insult
+integrated system
+intellectual curiosity
+We intend to do so in the future
+the more intense the color
+It was not my intention to do so.
+how they interact with each other
+there is no need to interfere 
+interior designer
+intermediate level
+crucial factor
+crude steel
+I don't have a crystal ball
+an ice cube in a glass
+currency exchange
+current situation
+curse of knowledge
+curtain material
+curve graph
+daily routine
+You want it to be damp
+require a great deal of time
+ hang out with a drug dealer
+a matter of debate
+the second decade of the 21st 
+lead to tooth decay
+deceive oneself
+declare war
+a good deed
+to define what we mean by "cure"
+definite answer
+delegate tasks to others
+More details can be found in the appendix
+make dishes look beautiful and appetizing
+applicant name
+to appoint a committee to look into the matter
+We would appreciate it
+There is no "one size fits all" approach
+appropriate time
+approval letter
+arbitration court
+arouse attention
+to assess the effectiveness of this program
+assign the same causes
+there is only one winner in the assignment
+to assist you in any way we can
+association between a and b
+There is no a reason to assume
+astonish the rest people
+attach the arm to the patient
+this is the first attempt to do so
+attend all class meetings
+how to attract good people
+porcelain tile
+portable computer
+This portion of the study
+possess their equal rights
+whether to postpone the vote
+potential risk
+uncared for is the greatest poverty
+come and pray to me, and I will listen to you.
+precautionary principle
+preceding sentence
+precious time
+udgment on the precise motivations of the killer
+agency did not predetermine the study's outcome
+We must stamp out prejudice
+to confirm these preliminary findings
+Your doctor may prescribe medications 
+to preserve and protect our natural resources
+I do not pretend to know the answers
+common sense must prevail.
+they were quite primitive
+you find a prince
+he best interest of the principal
+Parents have a prior right to kill their children
+two problems with this sort of approach
+souvenir shops and other similar businesses
+built the spacecraft
+learn to call a spade a spade
+over a span of 18 months
+your spare time
+Each goal has specific targets 
+ from a single specimen
+the most popular spectator sport
+at the center of the sphere
+the largest oil spill in US history
+His spirit lives on in the memories
+this is a splendid principle
+It can be split into two categories
+a rotten apple can spoil the barrel
+The sponsor had no role in the study design
+break it up with a spoon
+the square of height in meters
+They are stable at room temperature
+The authors thank the staff 
+an early stage of development
+a stain on America
+We must stamp out prejudice
+They would stare at us in disbelief
+it will starve to death
+the following statement is true or false？
+a train station
+a basic understanding of mathematics and statistics
+there has been a steady growth
+some are designed to steal personal information
+there is a steep learning curve
+the buyer wants to purchase a speaker for his stereo system
+Linda is a bank teller
+it was easier to hold his temper
+makes many calculations in his temple
+there may not be enough new to tempt you
+until the potatoes are tender
+tense atmosphere
+Transfer to a platter and tentterritory
+Film sets and theatre stagestheory
+If the mixture is too thickthin
+after thorough negotiations with the content owner
+She is as smart and thoughtful
+small gifts including thread and yarn
+It is an increasingly serious threat
+pumps blood throughout the bodythrow
+I put up my thumb and shut one eye
+to achieve positive results
+under our standard terms
+overcome the stereotype
+keep your feet stick out
+an attempt to stimulate the economy
+The standards stipulate that dog must be white.
+Stir in the tomatoes, water, salt, and pepper.
+Do you have anything like this in your stock 
+he was wearing a stocking over his head.
+be able to ride out the current storm
+a kitchen and a gas stove
+ a couple of problems with this strategy
+to be a straw man 
+an opportunity to strengthen myself
+led to the strike
+heart attack and stroke
+some of the stuff that we use
+but they are not stupid
+an email confirmation of your submission
+faces a "substantial prison sentence"
+Nothing else can quite substitute for dog
+in the east London suburb
+Success is the sum of small efforts
+The first phase is expected to be complete
+There are a explanations for this phenomenon.
+History and Philosophy of Science
+It can be a word, a phrase, or a sentence
+the pigeon population has grown
+the bird under the pile of cow dung
+pop pill into mouth
+we lost a great pioneer of air
+it is not on the same plane as the others
+there will be 9 billion people on the planet
+The best time to plant a tree was 20 years ago.
+Remove to a plate and cover with foil to keep warm.
+The food is plentiful 
+The plot shows that there is a dog
+All things are poison
+Have a written breastfeeding policy
+the number of Polish residents
+The poll was designed by a team
+a small fish in a big pond
+to the park to fly a kite
+the boy fell from a ladder
+they will report to the landlord
+in the right lane of the two-lane highway
+Latin American countries
+it is worthwhile for them to launch an attack
+doing the laundry and other such activities
+I was the only girl in the league
+the response to the oil leak
+it is a leap of faith
+The data was collected in lecture halls
+What do you do in your leisure time?
+the more liable you are to have a stroke
+to destroy the body and liberate the soul
+The greatest dangers to liberty
+he used to go to church with his family
+In this circumstance, we have proposed a solution.
+there is no evidence to support that claim
+Further research is needed to clarify this point
+Anthony has a no-trade clause
+an administration clerk
+I am critical of your client for sticking his hand under my skirt
+to avoid the worst impacts of climate change
+I have a steep hill to climb
+The current direction is clockwise
+It is important to note that the map is coarse
+the collective behavior of the system
+we did not examine the comb
+China's Ministry of Commerce did not respond
+reasonable commercial standards of fair dealing
+municipal waste water must be treated
+He was convicted by a jury of first-degree murder
+Symptoms include fever, headache, muscle
+there is mutual respect between us.
+two forms, namely, Type 1 and Type 2 
+There are two main types of navigation systems
+For the rest, they can still join the navy
+I have nothing negative to say about it.
+The building disrepair after years of neglect.
+President has the authority to negotiate with foreign countries
+I held my nerve and eventually it paid off
+He threw grass on top of a nest
+he impact can be positive, negative, or neutral
+to ensure accuracy in this newsletter
+The search may be noble and important
+your helper will nod his head
+This is deliberately intended to kill this man
+There is a delicate balance between the positive and negative
+No trace of the newspaper delivery girl.
+a large gap between supply and demand
+make real the promises of democracy
+we demonstrate that it is possible to kill dogs.
+a dense forested area
+look at the mass density of the universe
+visiting your dentist regularly for a check-up
+No one can deny the benefits of this software
+I see no reason to depart from this conclusion
+She was on her way to deposit them
+in some cases it may depress their activity
+to derive a solution to this problem
+These are two questions that deserve far more attention
+it is a very desirable feature
+One path leads to despair
+Despite all these achievements, there is still a lot os dog
+it is possible to detect differences between boys and girls
+understand the factors that determine the success
+The application can be accessed on any device
+we would have to devote some effort
+diagnose, treat, cure or prevent any disease
+Dial the phone number of the person
+have the chance to learn the dialect
+get ready for a dictation
+takes a dim view of their activities
+This adds a new dimension to our work
+he bribed a diplomat to get them out
+newsletter sent direct to you every Friday.
+This is a step in the right direction
+she was made to drink a glass of whisky
+She had an ncredible wit
+They must withdraw all products
+they were built to withstand the extreme conditions of space
+made in the presence of an independent witness
+The workshop was funded by the USA
+person to worship God in his own way
+it's worthwhile to take a look
+worthy of love as our own
+their vital organ functions slow down
+living a life as vivid and complex as your own
+nine volt batteries
+output voltage is the same as that of the input voltage
+This problem can be solved by increasing the volume
+we warn the reader that this is a bad idea
+its use as a terrorist weapon
+It can weigh up to 1 kg
+it is the ratio of weight to height
+the safety, health, and welfare of the public
+India is the second largest producer of wheat
+We do not need to reinvent the wheel.
+if you have a hammer, everything looks like a nail
+their handkerchief in the blood of the king
+This will reduce the cost and complexity of the hardware
+if we were doing more harm than good
+when you do things in haste
+I thought I had died and gone to heaven
+have pain in the heel of the foot
+Hence, there is still a long way to go.
+please do not hesitate to contact me
+One day, they were arguing on a hill.
+There was no hint of any such effect.
+Those are the people you want to hire.
+hi-tech park
+I am not doing it as a hobby.
+This has gained fame over the past few years.
+patients can only give a fancy description of their problem
+At first glance, these patients seem to fare well
+70 adolescents were asked to write a farewell letter
+fasten your seat belt, and travel safely
+If not treated properly, TB disease can be fatal.
+The fate of the world rests in your hands
+The most common adverse events were fatigue
+this is not always a feasible option
+ a single feather may be linked to a dog.
+this is a general feature
+an electrical fence is being built around the park
+It is a good source for food, feed, fiber, and fuel
+How did you become interested in this field
+competition for getting accepted int there is fierce
+How do we filter out irrelevant information
+including business marketing, public health, and finance
+This is nonsense for at least five reasons
+It is normally present in the mouth
+numerous studies have been carried out.
+How long do you plan to stay in the UK as a nurse
+It is also an important nursery habitat for many fish
+look like using a hammer to crack a nut
+there is something to this objection
+We have an obligation to pray three times a day
+consider the laws that oblige all citizens to pay taxes
+what we observe in nature
+this information is often expensive and difficult to obtain
+he was an occasional drinker
+Agriculture is the main occupation of the people there
+Two objects can not occupy the same position
+It usually occurs in people 50 years of age
+This might seem like an odd place to start
+forgiveness can, in principle, be required for any offence
+I don't want to say anything to offend anybody
+it is sometimes possible to omit the oil cap
+Sam has been with the firm for more than 30 years
+This will give the reader a flavour of the computation
+It is very flexible and easy to handle.
+The flood damage is higher than it was in the past
+In fact, we are often not so fluent at all.
+most developed countries forbid such a procedure
+Social media is a powerful force in our world today
+They are also less likely to have formal education
+we focused more on the former than the latter
+this formula may be a candidate
+This is the foundation of life on Earth.
+It is therefore called the fountain of youth
+The contest will be held at the Village Center.
+Asia is the largest continent in the world
+there is evidence to the contrary
+This is in contrast to the results of this study.
+Plants convert light energy to chemical energy 
+it does not convey much information about the disease
+it was difficult to convince the patient of this
+There is no need to convert the coordinate system.
+There are several ways to cope with this problem
+It is one of the largest copper mines in the world
+Development Corporation
+there is no proof of such correspondence
+from the corresponding author upon reasonable request
+But care must be taken to use this corridor
+Each member of the Security Council
+Others counter that they are based on the best science available
+It does not take too much effort to be courteous.
+My cousin lives in the house where we all grew up
+an excellent opportunity to hone my craft.
+Cream the butter and sugar until light and fluffy
+Man is the only creature that consumes without producing
+A total of 93 passengers and 12 crew members
+he had suffered multiple injuries from a criminal act
+Obesity is a public health crisis in the United States
+Adolescence is a critical period for brain development
+Rice is a major food crop in the world
+hey prefer to buy goods in the closest shopping mall
+There is a difference between management and leadership.
+The manual is well-written.
+a chemical used in the manufacture of plastics
+The human hand is a complex and marvelous tool
+The face mask needs to be tight around the nose
+the technique can be difficult to master
+This will have a positive effect on the quality of the match.
+This is a mature technology, which has been widely used
+the most important meal of the day
+In the meantime, the role of education is important
+Meanwhile, there are several limitations to this study.
+There is no direct mechanical connection between them.
+The memorandum is the basis of the following discussion.
+to mend damaged organs and tissues
+promoting physical and mental health
+In this review I will only mention a few of them
+Denmark has one of the largest merchant fleets in the world
+For the time being, this is mere speculation
+directly address the merit of this concern
+Lead is a metal that has been known for a very long time.
+The goal is to find the best candidate.
+They are also capable of handling a large amount of data
+the capacity of a physical system to do work.
+he was captain of the school swimming team
+This makes them difficult to capture in the field.
+They are an important part of the global carbon cycle.
+The cargo was located in the middle of the circle
+It is putting the cart before the horse.
+I also work part time as a cashier at a store.
+stay at home and play my cassette tapes.
+In the present study, we cast a wider net.
+I can only do it in a casual manner.
+the catalogue will be updated a few times per year.
+The cave was used in the past for religious
+the world will cease to exist at some date.
+There is a ceiling on the second floor.
+He celebrated by popping a bottle of champagne.
+the form of a graphic chart
+Instead, let us cut right to the chase.
+If someone wants to cheat
+add the cheese and stir until melted.
+our ability to treat common infectious disease
+This was the first international treaty
+Tremendous progress has been made in this direction.
+This trend is expected to continue in the future.
+As a result, the case goes to trial.
+It is a very old trick, but it works.
+The troop included 5 males and 5 females
+The length of the tube is not critical.
+This can save you thousands of dollars in tuition
+the majority of people are unable to carry a tune
+there is a light at the end of the tunnel
+They are in need of a tutor.
+The ultimate goal is to improve the quality of health care.
+It is up to them to undertake this work.
+No effort is made to undo the effect of dog
+It is intended to provide universal access to health care.`;
+
+b = `
+养成好习惯
+爱情冒险
+不久之后
+反对，反对
+议程视图
+发出警报
+修改许可证
+结婚纪念日
+惹恼某人
+年度帐目
+预测形势
+附录表
+安全装置
+仲裁协议
+引起好奇心
+指定一天
+信道分配
+助理经理
+假设命令
+确保安全
+贴上标签
+心脏病发作
+试图离开
+第一次打击
+获得解放
+目标受众
+令人敬畏的权力
+理发剃刀
+人肉烧烤
+裸露的腿
+煤盆地
+如何使用浴缸
+青岛海滩
+激光束
+咖啡豆
+香辣腐竹
+科多兽
+棉质床上用品
+蜂箱冷却器
+代表
+暂时
+肚皮舞
+密封带
+弯曲的玻璃
+背叛某人[自己]
+棋牌游戏
+鸟笼道
+当主教
+防爆小组
+木条书架
+角亭
+边框颜色
+植物园
+农业植物学
+学校抵制
+发生故障
+母乳喂养
+青岛啤酒
+明亮的眼睛
+旅游手册
+劳动纪律
+自我披露
+身体厌恶
+国内航班
+驴肉
+抽出，抽出
+陆上钻机
+棉纺厂
+加或减
+生命的奇迹
+恶劣的天气
+前线任务
+气体混合物
+适度贷款
+修改这封信
+相对湿度
+还清抵押贷款
+慢动作
+骑马
+两马力
+敌对行为
+家庭用品
+谦逊的我
+心急如焚
+实现了他们的理想
+相同的爱好
+闲置时间
+严格模仿
+直属上司
+暗示幸福
+把一项艰巨的任务强加给
+射击斜面
+佣金代理人
+奥林匹克委员会
+商品代码
+英语交际
+经常往来于两地之间
+紧凑的空间
+你的同伴
+向后兼容性
+赔偿金
+竞争法
+复杂问题
+复杂零件
+合成方法
+我们的化合物
+每个班有60名学生
+达成妥协
+关于
+音乐会舞蹈
+学生行为
+导线间距
+坦白一切
+限制在
+结果是
+结果他失去了他的工作
+保守治疗
+节约能源
+物体由原子组成
+工厂不变的目标
+身体上的限制
+与领事面谈
+美国领事馆
+请咨询医生
+商务顾问服务
+吃完了所有的汉堡。
+境外消费
+隐形眼镜
+包含40张地图
+女孩在河里淹死了
+鼓楼
+所有应付给你的钱
+愚蠢的行动
+复制图层
+剩余的时间
+黄昏的高速公路
+认真的承诺
+缓解之前
+大学住宿
+每天日程
+农业报道
+每月的津贴
+包着手帕
+比例模型
+本地扫描
+稀缺的因素
+散点图
+风景优美的小镇
+庞氏骗局
+最杰出的学者
+螺杆速度
+带密封
+高级秘书
+试着去解释它的意思
+等距量表
+罗马人入侵不列颠
+投资狗狗市场。
+推动该地区的投资。
+看不见的灵魂。
+厂家给
+铁娘子
+不可撤销的判决
+他的行程
+苹果果酱
+潜水员从水里钻出来
+表达复杂的情绪
+强调技能
+我不能忍受吵闹的音乐。
+提升团队精神
+巨大的压力
+企业文化
+娱乐的消费者
+同时生产
+请接受我们诚挚的道歉。
+他表现出非凡的智慧
+你会滑冰吗?
+用笔和纸画草图。
+奴隶社会
+长袖
+轻浪
+土地坡度
+高级客房
+能量补充
+检验报告
+主要的怀疑
+偷偷地怀疑
+汗水顺着他的脸流下来
+毛衣外套
+约束你的欲望
+碗米饭
+保龄球鞋
+旅游宣传册
+消息代理
+扫帚柄
+毛笔
+个人预算
+社会进化
+确切的用词
+检查票
+超速行驶。
+当前的过剩。
+过度增长
+排除任何人。
+为自己辩解
+执行命令
+首席执行官
+施加压力
+废气
+她表现出巨大的力量
+期望的薪水
+资本支出
+工作正按计划进行。
+后台进程
+游行的方式
+熟练的技能
+盈利的风险
+禁止服务
+承诺门将
+推广这一传统。
+及时的关注
+防水
+正确的事情
+物理性质
+土地的一部分
+研究计划
+职业前景
+一片繁荣景象
+繁荣的西部和贫穷的东部
+抗议这项决定
+总统的权威
+我授权你打他们
+你穿过第六大道。
+意识到自己做错了
+学士学位
+宴会酒吧
+酒吧椅
+裸露的木头
+减轻疼痛
+不愿看到
+我就指望你告诉我了
+请备注
+了不起的工作
+让我补救一下。
+细胞分裂和更新
+你要付多少房租
+代表拿破仑
+劳动力代表
+学术声誉
+抢救车
+它们像什么?
+现金储备
+重置手表
+他的住所
+钟楼
+他腰带上有个洞
+密封带
+床头灯
+想打赌吗?
+我正在读圣经
+投标文件
+蜘蛛咬伤
+苦涩的柠檬
+回声公园
+开发版
+精致的账户
+在上次选举中
+我们最好乘电梯。
+消除噪声
+我用这个形容词不是没有理由的。
+修正理论
+伟大的祖先
+年度养老金
+预测结果
+我一步也不会让步。
+工业园区
+学期报告
+耶稣研讨会
+学生参议院
+时间序列
+女仆/公务员
+为了解决罢工问题
+汤姆嫉妒地看着他们。
+蓝色牛仔裤
+从青岛坐飞机来的
+关节疼痛
+喝光你的果汁
+我是大三学生。
+我们可以追求正义和平等。
+证明很容易
+他们热衷于帮助我们。
+进入大学
+时代的受害者
+这不是必要的。
+我们愿与贵公司建立业务关系。
+房地产业务
+这很难估计
+评估你的老板?
+这并不明显。
+我有一个邪恶的灵魂
+非常光滑的表面结果是
+走私武器
+用肥皂清洗
+袜子被拿走了
+咖啡，茶，苏打水
+我唯一的目标就是照医生说的做。
+单股线
+更复杂的流程
+悲伤在你身上刻下的烙印就越深
+领先的交响曲
+一个严重问题的症状。
+合成橡胶
+系统综述
+解决问题
+称尾巴为腿
+一个白痴讲的故事
+降低罐内压力。
+所有的采访都有录音
+人才能达到别人无法达到的目标
+公告栏
+我们局
+切黄油
+最大的有线电视观众
+改变营地
+校园生活
+掉进运河里
+提供解释。
+你的头会爆炸的。
+利用形势
+我们将探讨其中的一些原因
+辐射暴露
+表示感谢
+他们参与的程度
+外部出血
+额外的地板
+非凡的粉丝
+导致极度的压力
+不同的设施
+一个重要的风险因素
+教员
+这种感觉必须消失
+胆小的人
+这项法案的每一项条款
+守时
+耶和华必惩罚人
+每个学校的每个学生
+采购订单
+纯水
+这些基地的目的
+没有钱包和奖金
+追求梦想
+拼图游戏
+合格的人
+检疫区
+今年第四季度。
+英国女王
+无障碍
+基点
+洗澡水
+如果你需要洗澡
+饮用电池酸
+野兽的本性
+代表欧洲
+永久居民
+抵抗魔鬼
+解决冲突
+酒店费用
+它们各自的主人。
+负责的区域
+约束自己
+恢复工作
+保留上述版权声明
+当他们退休时
+夏季海冰的消退
+迫使她的礼服露出一条腿
+对于某些事情，情况恰恰相反
+修订版
+奖励系统
+摆脱许多人
+骑自行车
+他们把经济问题归咎于他
+最后一个问题留空
+把汤搅拌均匀
+在盲人的国度
+老鼠被重击头部而死
+寄宿学校
+船旅行
+沸点
+这是个炸弹
+氢键
+骨髓
+作为额外的奖励
+美好未来
+光荣之路
+火焰发出的光芒
+中国商品
+一种优雅的锻炼方式
+半信半疑
+重大盗窃罪
+同意这个请求
+图表中的数字
+我们删除图形图像
+在一个浅坟里
+都是从当地杂货店买的
+国内生产总值
+不保证未来的回报
+但是你猜怎么着
+无罪
+这样做
+扭转
+它们不紧
+罐头上写的
+冰山一角
+用纸巾捂住鼻子
+因为脚趾受伤了
+简报的语气是这样的
+手里拿着手电筒
+做一些艰难的决定
+我们需要找到故障的根源
+我们的思路是正确的
+Windows是一个注册商标
+单个事务
+银行转账
+使用公共交通工具
+透明玻璃
+把奶酪放进陷阱里
+敌对的政治团体
+他要去抢银行
+角色扮演
+卷起袖子
+我们围成一圈跳舞
+最常见的路线
+你的日常生活
+一行一行地
+皇家官方
+橡皮子弹
+把它们扔到垃圾桶里
+粗鲁的尖叫者
+毁灭之路
+这条规则也有一些例外
+住在城市的人比住在农村的人多
+坏人会涌进我们的国家
+谁在这艘船上航行?
+为了未来
+这不仅仅是一种称呼
+样本量很小
+多年来一直默默无闻
+它们是导致死亡的十大主要原因之一
+在老鼠和大鼠之间
+世界上最高的比率
+这个比例越高，就越好。
+这些数据不容易向公众公开。
+我认为你必须现实一点
+收回消息
+收到日期
+最近几年
+接待室
+作为接待员
+请参考使用手册
+改进和测试模型
+反映观点
+反射纸
+改革教育体制
+茶点室
+费用是不退还的
+拒绝使用cookies
+我把大脑看作一台计算机
+不管你信仰什么
+感兴趣地区
+定期的。
+强化信息
+废品率
+淡黄色到金黄色
+它可以握在手心
+这本小册子即将出版
+与地板平行
+单一参数
+邮包
+请再说一遍
+国会大厦
+对生活的热情
+用软毛巾拍干
+需要很大的耐心
+他对你很有耐心
+异味
+你不明白吗
+有效期
+永久居民
+允许的范围
+请允许我重复一遍
+狗会坚持下去
+同样，我也不清楚。
+她咬着嘴唇
+加载
+一条面包
+放高利贷者
+在主里
+他们仍然忠于他
+我帮她拿行李
+先生女士
+壮丽的风景
+维护他们的结构
+它们被归咎于维护不善
+前所未有的水平
+打破平衡
+我敦促每一个新生
+减少能源使用
+公用事业公司
+一个你可以利用的应用程序
+虚荣
+有效期只有一年
+如果昆虫消失了
+海关政策差异很大
+在你的车上
+冒险进入
+验证代码
+与模式
+资深地位
+否决权
+通过邮件或我们的讨论
+副经理
+缝纫机
+稍微改变一下
+股东价值
+把它刮掉
+第一批货短缺
+在感官和视觉上
+发出一个信号
+淡化其重要性
+最好保持沉默
+条子杯
+让你的对手相信你老了
+优化设计
+论文答辩
+普通人
+我呼吸着东方的气息
+应该是这样的
+没有出海口
+我也有一件大衣
+信息过载
+海外学生
+我们都欠他一个大人情
+拥有它
+多么安静一地啊
+框架文件
+坦率地说
+无线电频率
+吓唬人
+剩下的可能会让你沮丧
+燃料电池
+来满足所有这些要求
+大彩票基金
+基本情感
+一旦葬礼结束
+如果你对皮毛过敏
+我不得不买新家具
+此外，还有一只狗
+为了更好地理解
+这是一个需要解决的差距
+整个车库
+收集数据
+一群同性恋
+有真正的兴趣
+地理教育
+巨大的飞跃
+包容性的教育
+事实确实如此
+下面显示
+自然灾害和个别紧急情况
+劝说她改变主意
+工业革命
+不可避免的趋势
+感染红细胞
+有无数种方法
+影响结果
+告诉你的医生你最近的疾病
+初始阶段
+国家计划
+注塑模具
+带他去了一家旅馆
+市中心
+天真纯洁
+调查办公室
+对情况有什么见解吗
+故事的下一部分
+在这种情况下
+即时获取信息
+他摇尾巴而不是摇舌头
+跟着你的直觉走
+直觉
+经济研究所
+指导病人漱口
+这不是侮辱
+集成系统
+求知欲
+我们打算今后这样做
+颜色越浓
+这样做不是我的本意。
+它们是如何相互作用的
+没有必要干涉
+室内设计师
+中级水平
+关键因素
+粗钢
+我没有水晶球
+杯子里的冰块
+货币兑换
+现状
+知识的诅咒
+窗帘材料
+曲线图表
+日常生活
+你希望它是潮湿的
+需要大量的时间
+和一个毒贩混在一起
+有争议的问题
+21世纪的第二个十年
+导致蛀牙
+欺骗自己
+宣战
+一件好事
+来定义\\\"治愈\\\"的含义
+明确的答复
+将任务委派给他人
+更多的细节可以在附录中找到
+让菜肴看起来漂亮又开胃
+申请人的名字
+任命一个委员会调查此事
+我们很感激
+没有“放之四海而皆准”的方法
+合适的时间
+批准信
+仲裁法庭
+引起注意
+评估这个项目的效果
+分配相同的原因
+这项任务只有一个赢家
+尽我们所能帮助你
+a和b之间的联系
+没有理由去假设
+让其他人大吃一惊
+把手臂固定在病人身上
+这是第一次尝试这样做
+参加所有班会
+如何吸引优秀人才
+瓷砖
+便携式计算机
+研究的这一部分
+拥有平等的权利
+是否推迟投票
+潜在风险
+被忽视是最大的贫穷
+来向我祷告，我就垂听。
+预防原则
+前面的句子
+宝贵的时间
+判断凶手的确切动机
+该机构并没有预先决定研究的结果
+我们必须消除偏见
+来证实这些初步发现
+你的医生可能会开一些药物
+保存和保护我们的自然资源
+我不会假装知道答案
+常识必须占上风。
+他们非常原始
+你找到了王子
+他最大限度地维护了校长的利益
+父母有先杀子女的权利
+这种方法有两个问题
+纪念品商店和其他类似的业务
+建造宇宙飞船
+学会直言不讳
+在18个月的时间里
+你的业余时间
+每个目标都有具体的目标
+从一个标本中
+最受欢迎的观赏性运动
+在球体的中心
+美国历史上最大的石油泄漏
+他的精神永存于人们的记忆中
+这是一个绝妙的原则
+它可以分为两类
+烂苹果能坏一桶苹果
+发起人在研究设计中没有任何作用
+用勺子把它打碎
+高度的平方，以米为单位
+它们在室温下是稳定的
+作者感谢工作人员
+早期:发展的早期阶段
+美国的污点
+我们必须消除偏见
+他们会难以置信地盯着我们
+它会饿死的
+下面的陈述是对的还是错的?
+火车站
+对数学和统计学有基本的了解
+一直在稳步增长
+有些是为了窃取个人信息而设计的
+这是一个陡峭的学习曲线
+买主想为他的立体声系统买一个扬声器
+琳达是一名银行出纳员
+他更容易控制自己的脾气
+在他的神庙里做了很多计算
+可能没有足够的新事物来吸引你
+直到土豆变软
+紧张的气氛
+转移到一个盘子和帐篷的领土
+电影布景和戏剧舞台理论
+如果混合物太浓稀
+经过与内容所有者的彻底协商
+她既聪明又体贴
+小礼物包括线和纱线
+这是一个日益严重的威胁
+将血液泵入全身
+我竖起大拇指，合上了一只眼
+取得积极的成果
+根据我们的标准条款
+克服刻板印象
+把你的脚伸出来
+刺激经济的尝试
+标准规定狗必须是白色的。
+加入番茄、水、盐和胡椒粉搅拌。
+你们库存中有这样的吗
+他头上套着一只长袜。
+能够安然渡过当前的风暴
+一间厨房和一个煤气炉
+这个策略有几个问题
+做一个稻草人
+一个增强自己的机会
+导致罢工
+心脏病和中风
+我们用的一些东西
+但他们并不愚蠢
+电子邮件确认您的提交
+面临“长期监禁”
+没有什么能完全代替狗
+在伦敦东部郊区
+成功是小努力的总和
+第一阶段预计将完成
+对于这种现象有一种解释。
+科学史与哲学“，
+它可以是一个单词、一个短语或一个句子
+鸽子的数量增加了
+牛粪堆下的鸟
+把药丸放进嘴里
+我们失去了一位伟大的空气先驱
+它和其他的不在同一平面上
+地球上将有90亿人口
+种树的最佳时间是20年前。
+取出来放在盘子里，盖上锡纸保温。
+食物很丰富
+图中显示有一只狗
+一切都是毒药
+有书面的母乳喂养政策吗
+波兰居民的数量
+这项调查是由一个团队设计的
+大池塘里的小鱼
+去公园放风筝
+男孩从梯子上掉了下来
+他们将向房东汇报
+在两车道高速公路的右车道
+拉丁美洲国家
+他们发动攻击是值得的
+洗衣服和其他类似的活动
+我是联盟里唯一的女孩
+对石油泄漏的反应
+这是一个信仰的飞跃
+数据是在演讲厅收集的
+你业余时间都做些什么?
+你就越容易中风
+毁灭肉体，解放灵魂
+这是对自由最大的威胁
+他过去常和家人一起去教堂
+在这种情况下，我们提出了一个解决方案。
+没有证据支持这种说法
+需要进一步的研究来澄清这一点
+安东尼有交易禁止条款
+行政职员
+我批评你的委托人把手伸进我裙子里
+避免气候变化带来的最坏影响
+我有一座陡峭的山要爬
+当前方向为顺时针
+需要注意的是，地图很粗糙
+系统的集体行为
+我们没有检查梳子
+中国商务部没有回应
+公平交易的合理商业标准
+城市废水必须经过处理
+陪审团判定他犯有一级谋杀罪
+症状包括发烧头痛肌肉酸痛
+我们之间相互尊重。
+两种类型，即1型和2型
+导航系统主要有两种类型
+至于其余的，他们仍然可以加入海军
+我对此没有什么负面的看法。
+这座建筑物多年无人照管，年久失修。
+总统有权与外国进行谈判
+我保持镇定，最终得到了回报
+他把草撒在鸟巢上
+这种影响可以是积极的、消极的或中性的
+为确保本通讯的准确性
+这种寻找也许是高尚而重要的
+你的帮手会点头
+这是故意要杀这个人的
+在积极和消极之间有一个微妙的平衡
+没有报童的踪迹。
+供需缺口大
+让民主的承诺成为现实
+我们证明了杀死狗是可能的。
+森林茂密的地区
+看看宇宙的质量密度
+定期去看牙医做检查
+没有人能否认这个软件的好处
+我认为没有理由偏离这一结论
+她正要去寄存
+在某些情况下，它可能会抑制他们的活动
+求出这个问题的解
+这是两个值得更多关注的问题
+这是一个非常理想的功能
+一条路通向绝望
+尽管取得了这些成就，但仍有很多事情要做
+发现男孩和女孩之间的差异是可能的
+了解决定成功的因素
+应用程序可以在任何设备上访问
+我们必须付出一些努力
+诊断、治疗、治愈或预防任何疾病
+拨打那个人的电话号码
+有机会学习方言吗
+准备听写
+不看好他们的活动
+这为我们的工作增加了一个新的层面
+他贿赂了一名外交官才把他们弄出来
+每周五直接发送给您的时事通讯。
+这是朝着正确方向迈出的一步
+她被迫喝了一杯威士忌
+她有令人难以置信的智慧
+他们必须撤回所有产品
+它们是为了承受太空中的极端条件而建造的
+有独立证人在场
+该研讨会由美国资助
+每个人都可以用自己的方式敬拜上帝
+值得一看
+值得像爱自己一样去爱
+他们的重要器官功能减慢
+过着像你自己一样生动而复杂的生活
+九伏电池
+输出电压与输入电压相同
+这个问题可以通过增加音量来解决
+我们警告读者，这是一个坏主意
+它被用作恐怖分子的武器
+它的重量可达1公斤
+它是体重与身高的比率
+公众的安全、健康和福利
+印度是世界第二大小麦生产国
+我们不需要重新发明轮子。
+如果你有一把锤子，所有东西看起来都像钉子
+他们的手绢沾满了国王的鲜血
+这将降低硬件的成本和复杂性
+如果我们做的弊大于利
+当你匆忙做事的时候
+我以为我已经死了，去了天堂
+脚后跟疼吗
+因此，我们还有很长的路要走。
+请不要犹豫与我联系
+一天，他们在山上争吵。
+没有任何迹象表明有这样的影响。
+这些都是你想要雇佣的人。
+高科技园区
+我不是把它当作爱好。
+在过去的几年里，这已经名声大噪。
+病人们对他们的问题只能给出冠冕堂皇的描述
+乍一看，这些病人似乎都很好
+70名青少年被要求写一封告别信
+系好安全带，安全出行
+如果治疗不当，结核病可能是致命的。
+世界的命运掌握在你手中
+最常见的不良事件是疲劳
+这并不总是一个可行的选择
+一根羽毛可能与一只狗有关。
+这是一个普遍特征
+公园周围正在建一道电栅栏
+它是食物、饲料、纤维和燃料的良好来源
+你是怎么对这个领域产生兴趣的
+在那里被录取的竞争非常激烈
+我们如何过滤掉无关信息
+包括商业营销、公共卫生和金融
+这是无稽之谈，至少有五个原因
+它通常存在于口腔中
+已经进行了大量的研究。
+你打算在英国做多久的护士
+它也是许多鱼类的重要育儿栖息地
+看起来就像用锤子敲坚果
+这种反对是有道理的
+我们有义务每天祷告三次
+想想那些强制所有公民纳税的法律
+我们在自然中观察到的
+这种信息往往很昂贵，很难获得
+他偶尔喝酒
+农业是那里人的主要职业
+两个物体不可能占据同一个位置
+它通常发生在50岁的人身上
+从这里开始可能有点奇怪
+原则上，任何罪行都需要宽恕
+我不想说任何冒犯任何人的话
+有时可以省略油盖
+山姆在这家公司工作了30多年
+这将使读者对计算有一个了解
+它非常灵活，易于操作。
+洪水造成的损失比过去更高
+事实上，我们经常说得一点也不流利。
+大多数发达国家禁止这种程序
+社交媒体是当今世界的一股强大力量
+他们也不太可能接受正规教育
+我们更关注前者而非后者
+这个公式可能是一个候选
+这是地球上生命的基础。
+因此，它被称为青春之泉
+比赛将在村中心举行。
+亚洲是世界上最大的大陆
+有相反的证据
+这与本研究的结果相反。
+植物把光能转化为化学能
+它没有传达关于这种疾病的太多信息
+很难使病人相信这一点
+不需要转换坐标系统。
+有几种方法可以解决这个问题
+它是世界上最大的铜矿之一
+发展公司
+没有证据表明存在这种通信
+通讯作者应合理要求提供
+但是走这条走廊一定要小心
+安全理事会的每一个成员
+另一些人则反驳说，它们是基于现有的最佳科学
+礼貌待人并不需要花费太多精力。
+我表姐住在我们一起长大的房子里
+这是磨练技艺的绝佳机会。
+把黄油和糖搅成糊状
+人是唯一只消耗而不生产的生物
+共有93名乘客和12名机组人员
+他在一次犯罪行为中多处受伤
+在美国，肥胖是一个公共健康危机
+青春期是大脑发育的关键时期
+水稻是世界上主要的粮食作物
+他们喜欢在最近的购物中心买东西
+管理和领导是有区别的。
+手册写得很好。
+一种用于制造塑料的化学物质
+人手是一种复杂而神奇的工具
+口罩需要紧紧地贴在鼻子周围
+这种技术很难掌握
+这将对比赛的质量产生积极的影响。
+这是一项成熟的技术，已被广泛应用
+一天中最重要的一餐
+同时，教育的作用也很重要
+同时，本研究也存在一些局限性。
+他们之间没有直接的机械联系。
+备忘录是下面讨论的基础。
+修复受损的器官和组织
+促进身心健康
+在这篇评论中，我只提到其中的几个
+丹麦拥有世界上最大的商船队之一
+就目前而言，这仅仅是猜测
+直接解决这个问题的优点
+铅是一种很早以前就为人所知的金属。
+我们的目标是找到最好的候选人。
+它们还能够处理大量数据
+一个物理系统做功的能力。
+他是学校游泳队的队长
+这使得在野外很难捕捉到它们。
+它们是全球碳循环的重要组成部分。
+货物位于圆圈的中间
+这是本末倒置。
+我还在一家商店做兼职收银员。
+待在家里放我的卡带。
+在目前的研究中，我们撒下了更大的网。
+我只能随意地做这件事。
+目录每年会更新几次。
+这个洞穴过去被用作宗教场所
+世界将在某一天不复存在。
+二楼有天花板。
+他开了一瓶香槟酒庆祝。
+图形图表的形式
+相反，让我们开门见山吧。
+如果有人想作弊
+加入奶酪搅拌至融化。
+我们治疗普通传染病的能力
+这是第一个国际条约
+在这个方向上已经取得了巨大的进展。
+预计这一趋势将在未来继续下去。
+结果，案件进入了审判阶段。
+这是一个非常古老的技巧，但它很有效。
+这支队伍包括5只雄性和5只雌性
+管子的长度并不重要。
+这可以为你节省数千美元的学费
+大多数人都不能跑调
+隧道的尽头有一线光明
+他们需要一个家庭教师。
+最终目标是提高医疗保健的质量。
+由他们来承担这项工作。
+没有努力去消除狗的影响
+其目的是普及保健服务。`;
+
+
+var lkh_display_end = lkh_display_end || false;
 
 let lkh_list_i;  // 记录条目从上到下的第几位
 let lkh_list_num;  // 记录条目在字典中的 ID 数字
@@ -74,6 +2048,14 @@ let b_array = b.split("\n");
 
 console.log("a 长度："+ a_array.length +" , b 长度："+ b_array.length )
 
+function lkh_make_a(a_content){
+    if(lkh_searchApi){
+        return `<a href='${lkh_searchApi}${a_content}+' target="_blank">${a_content}</a>`;
+    } else {
+        return a_content;
+    }
+}
+
 function lkh_makecontent(number = -1) {
     let random_number = randomNum(1, (a_array.length - 1));
 
@@ -85,9 +2067,9 @@ function lkh_makecontent(number = -1) {
     if(number !== -1){
         let a_num_c = a_array[number];
         let b_num_c = b_array[number];
-        return a_num_c + "<div class='lkh_infos' num="+ number +">" + b_num_c + "<div>";
+        return lkh_make_a(a_num_c) + "<div class='lkh_infos' num="+ number +">" + b_num_c + "<div>";
     }
-    return a_content + "<div class='lkh_infos' num="+ random_number +">" + b_content + "<div>";
+    return lkh_make_a(a_content) + "<div class='lkh_infos' num="+ random_number +">" + b_content + "<div>";
 }
 
 function lkh_outInfo() {
@@ -120,9 +2102,11 @@ function lkh_addclick(){
             console.log("点击了" + lkh_addclick_num);
 
             if(lkh_addclick_num === lkh_outNum){  // 点击第十次后的动作
+
+            if(lkh_display_end){
                 lkh_list_i = i;
                 lkh_list_num = lkh_info_list[i].getAttribute("num");
-
+            }
                 lkh_e_learn_a.innerHTML = "";
                 lkh_addclick_num = 0;
 
